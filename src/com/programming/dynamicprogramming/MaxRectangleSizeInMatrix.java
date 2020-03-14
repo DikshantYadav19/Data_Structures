@@ -1,5 +1,7 @@
 package com.programming.dynamicprogramming;
 
+import com.programming.stacks.MaximumHistogramArea;
+
 public class MaxRectangleSizeInMatrix {
     public static void main(String args[]) {
         int matrix[][] = {
@@ -18,6 +20,8 @@ public class MaxRectangleSizeInMatrix {
         int[] sumArray = new int[matrix[0].length];
         int maxArea = 0, area = 0;
 
+        MaximumHistogramArea histogramArea = new MaximumHistogramArea();
+
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < sumArray.length; j++) {
                 if (matrix[i][j] == 0) {
@@ -26,7 +30,7 @@ public class MaxRectangleSizeInMatrix {
                     sumArray[j] += matrix[i][j];
                 }
             }
-//            area = mh.maxHistogram(sumArray);
+            area = histogramArea.maxHistogram(sumArray);
             if (area > maxArea) {
                 maxArea = area;
             }
